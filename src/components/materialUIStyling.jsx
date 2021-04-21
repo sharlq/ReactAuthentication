@@ -15,17 +15,25 @@ import { makeStyles } from '@material-ui/core/styles';
       marginBottom: 12,
     },
     btn:{
-        width:"100%"
+        width:"100%",
+        background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+        boxShadow:'0 3px 5px 2px rgba(33, 203, 243, .3)'
     },
     textBox: {
         '& > *': {
           justifyContent: "center",
-          
+          outline:'rgba(33, 203, 243, .3) !important',
           display: "flex",
           margin: theme.spacing(1),
           maxWidth: "none"
         },
+       
       },
+    input:{
+        '&:focus':{
+            backgroundColor: 'rgba(33, 203, 243, .3) !important',
+        }
+    }
 
   }));
 
