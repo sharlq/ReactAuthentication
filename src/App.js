@@ -1,10 +1,10 @@
 
-import Card from "./components/card"
+import SignUp from "./components/signup"
 
 function App() {
   return (
     <div className="App">
-      <Card />
+      <SignUp />
     </div>
   );
 }
