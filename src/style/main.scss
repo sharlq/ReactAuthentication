@@ -2,8 +2,12 @@
 .log-sign-qustion{
     width: fit-content ;
     margin: 0 auto;
+    margin-top: 15px;
 }
 .card{
     display: flex !important;
     flex-direction: column;
+}
+.user-info{
+    margin: 15px;
 }
