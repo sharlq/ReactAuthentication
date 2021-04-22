@@ -3,22 +3,23 @@ import {Card,CardContent,Button,Typography,TextField} from '@material-ui/core'
 import {Alert} from '@material-ui/lab';
 import useStyles from "./materialUIStyling";
 import {useAuth} from "../context/authcontext";
-import {Link} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 
 const LogIn = () => {
     const emailRef=useRef()
     const passwordRef=useRef()
     const classes = useStyles();
-    const {singup} = useAuth();
+    const {login} = useAuth();
     const [error,setError] = useState("")
     const [loading,setLoading] = useState(false)
-
+    const history = useHistory;
    const  handleSubmite = async(e) => {
       e.preventDefault()
       try{
        setError('')
        setLoading(true)
-      await singup(emailRef.current.value,passwordRef.current.value)
+      await login(emailRef.current.value,passwordRef.current.value)
+      history.push("/")
       }catch(err){
         setError('failed to Log in')
         console.log(err)
@@ -62,7 +63,7 @@ const LogIn = () => {
      </Button>
      </div>
       </form>
-      <p>Need an Account ? <Link to="/signup">Sign Up</Link> </p>
+      <p className="log-sign-qustion">Need an Account ? <Link to="/signup">Sign Up</Link> </p>
       </CardContent>
       
     </Card>
