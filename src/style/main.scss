@@ -1,0 +1,11 @@
+@import "config";
+.log-sign-qustion{
+    justify-self: center;
+    align-self: center;
+    width: fit-content;
+    
+}
+.card{
+    display: flex !important;
+    flex-direction: column;
+}
