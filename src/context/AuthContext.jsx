@@ -12,8 +12,10 @@ export const useAuth = () =>{
 
 export const AuthProvider = ({children}) => {
 const [currentUser,setCurrentUser]=useState()
+const [loading,setLoading] = useState(false)
  const singup = (email , password)=>{  
         return auth.createUserWithEmailAndPassword(email,password)
+       
  }
 
 
@@ -21,6 +23,8 @@ const [currentUser,setCurrentUser]=useState()
  useEffect(() => {//because we only run once 
 
      const unsubscribe =  auth.onAuthStateChanged(user =>{
+        setLoading(true)
+        
            setCurrentUser(user)
        })
        return unsubscribe
