@@ -11,6 +11,7 @@ const Dashboard = () => {
     const {currentUser,logout} = useAuth()
     const history = useHistory()
 
+    // now if i opened the the dash board url link why ian not loged in it will give me erro and i want to be directed to the log in page instead
 
     const handleLogOut = async() =>{
         setError('')
