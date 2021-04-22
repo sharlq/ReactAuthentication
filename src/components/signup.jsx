@@ -1,5 +1,6 @@
-import React, {useRef} from 'react'
+import React, {useRef,useState} from 'react'
 import {Card,CardContent,Button,Typography,TextField} from '@material-ui/core'
+import {Alert} from '@material-ui/lab';
 import useStyles from "./materialUIStyling"
 import {useAuth} from "../context/authcontext"
 
@@ -10,11 +11,22 @@ const SignUp = () => {
     const passwordRef=useRef()
     const passwordConfirmRef=useRef()
     const classes = useStyles();
-    const {signup} = useAuth();
-
-   const handleSubmite = (e) => {
+    const {singup,currentUser} = useAuth();
+    const [error,setError] = useState("")
+    const [loading,setLoading] = useState(false)
+   const  handleSubmite = async(e) => {
       e.preventDefault()
-       signup(emailRef.current.value,passwordRef.current.value)
+      if(passwordRef.current.value!==passwordConfirmRef.current.value)
+      {setError("password dosnt match")}//note that the useRef has current property to reach the value instead of target on the previous input events
+      try{
+       setError('')
+       setLoading(true)
+      await singup(emailRef.current.value,passwordRef.current.value)
+      }catch(err){
+        setError('failed to create account')
+        console.log(err)
+      }
+      setLoading(false)
     }
 
     return (
@@ -22,7 +34,9 @@ const SignUp = () => {
         <Card variant="outlined" className={classes.root}>
       <CardContent>
        <Typography variant="h4" className={classes.title} >Sign Up</Typography>
+      {JSON.stringify(currentUser.email)}
       <form className={classes.textBox} noValidate autoComplete="off" onSubmit={(e)=>handleSubmite(e)} >
+      {error && <Alert severity="error">{error}</Alert> /*this will work since empty string returns false */}
       <TextField 
         error={false}
         className={classes.input}
@@ -44,7 +58,7 @@ const SignUp = () => {
         required
         />
       <TextField
-       error={false}
+       error={error}
        id="outlined-basic"   
        type="password" 
        label="Password Confirmation" 
@@ -54,7 +68,7 @@ const SignUp = () => {
        />
     
     <div>
-      <Button variant="contained" color="primary" className={classes.btn} type="submit" >
+      <Button disable={loading} variant="contained" color="primary" className={classes.btn} type="submit" >
         Sign Up
      </Button>
      </div>

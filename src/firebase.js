@@ -8,9 +8,7 @@ const app = firebase.initializeApp({
     storageBucket: process.env.REACT_APP_FIREBASE_STRONGBUCKET ,
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID ,
     appId: process.env.REACT_APP_FIREBASE_APPID
-})
-
-
+}) // it worked for god sake how i dont know 
 
 export const auth = app.auth()
 export default app
