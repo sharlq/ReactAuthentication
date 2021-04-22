@@ -23,6 +23,10 @@ const [loading,setLoading] = useState(false)
    
 }
 
+const logout = ()=>{  
+    return auth.signOut()  
+}
+
  useEffect(() => {//because we only run once 
 
      const unsubscribe =  auth.onAuthStateChanged(user =>{
@@ -38,7 +42,8 @@ const [loading,setLoading] = useState(false)
 const value = {
     currentUser,
     singup,
-    login
+    login,
+    logout
 }
     return (
         <AuthContext.Provider value={value}>

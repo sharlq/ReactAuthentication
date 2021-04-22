@@ -9,17 +9,17 @@ const LogIn = () => {
     const emailRef=useRef()
     const passwordRef=useRef()
     const classes = useStyles();
-    const {login} = useAuth();
+    const {login,currentUser} = useAuth();
     const [error,setError] = useState("")
     const [loading,setLoading] = useState(false)
-    const history = useHistory;
+    const history = useHistory();
    const  handleSubmite = async(e) => {
       e.preventDefault()
       try{
        setError('')
        setLoading(true)
       await login(emailRef.current.value,passwordRef.current.value)
-      history.push("/")
+      history.push("/") // history.push is not a function
       }catch(err){
         setError('failed to Log in')
         console.log(err)
