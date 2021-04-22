@@ -1,11 +1,11 @@
-
+import React from "react"
 import SignUp from "./components/signup"
-
+import { AuthProvider } from "./context/authcontext"
 function App() {
   return (
-    <div className="App">
+    <AuthProvider>
       <SignUp />
-    </div>
+    </AuthProvider>
   );
 }
 
