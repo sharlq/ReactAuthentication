@@ -18,7 +18,10 @@ const [loading,setLoading] = useState(false)
        
  }
 
-
+ const login = (email , password)=>{  
+    return auth.signInWithEmailAndPassword(email,password)
+   
+}
 
  useEffect(() => {//because we only run once 
 
@@ -34,7 +37,8 @@ const [loading,setLoading] = useState(false)
 
 const value = {
     currentUser,
-    singup
+    singup,
+    login
 }
     return (
         <AuthContext.Provider value={value}>

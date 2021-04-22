@@ -3,7 +3,7 @@ import {Card,CardContent,Button,Typography,TextField} from '@material-ui/core'
 import {Alert} from '@material-ui/lab';
 import useStyles from "./materialUIStyling"
 import {useAuth} from "../context/authcontext"
-import {Link} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 
 
   
@@ -15,7 +15,8 @@ const SignUp = () => {
     const {singup} = useAuth();
     const [error,setError] = useState("")
     const [loading,setLoading] = useState(false)
-   const  handleSubmite = async(e) => {
+    const history = useHistory;
+    const  handleSubmite = async(e) => {
       e.preventDefault()
       if(passwordRef.current.value!==passwordConfirmRef.current.value)
       {setError("password dosnt match")}//note that the useRef has current property to reach the value instead of target on the previous input events
@@ -23,7 +24,8 @@ const SignUp = () => {
        setError('')
        setLoading(true)
       await singup(emailRef.current.value,passwordRef.current.value)
-      }catch(err){
+      history.push("/")
+    }catch(err){
         setError('failed to create account')
         console.log(err)
       }
@@ -73,9 +75,9 @@ const SignUp = () => {
      </Button>
      </div>
       </form>
-      <div className="log-sign-qustion">
-      <p >Alredy have an Account ?<Link to="/login">Log In</Link> </p>
-      </div>
+      <p className="log-sign-qustion">
+      Alredy have an Account ?<Link to="/login">Log In</Link> 
+      </p>
       </CardContent>
       
     </Card>
