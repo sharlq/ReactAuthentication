@@ -13,18 +13,21 @@ export const useAuth = () =>{
 export const AuthProvider = ({children}) => {
 const [currentUser,setCurrentUser]=useState()
 const [loading,setLoading] = useState(false)
+
  const singup = (email , password)=>{  
-        return auth.createUserWithEmailAndPassword(email,password)
-       
+        return auth.createUserWithEmailAndPassword(email,password)   
  }
 
  const login = (email , password)=>{  
-    return auth.signInWithEmailAndPassword(email,password)
-   
+    return auth.signInWithEmailAndPassword(email,password) 
 }
 
 const logout = ()=>{  
     return auth.signOut()  
+}
+
+const resetPassword = async(email) =>{
+    return await auth.sendPasswordResetEmail(email)
 }
 
  useEffect(() => {//because we only run once 
@@ -43,7 +46,8 @@ const value = {
     currentUser,
     singup,
     login,
-    logout
+    logout,
+    resetPassword
 }
     return (
         <AuthContext.Provider value={value}>
