@@ -15,7 +15,7 @@ const SignUp = () => {
     const {singup} = useAuth();
     const [error,setError] = useState("")
     const [loading,setLoading] = useState(false)
-    const history = useHistory;
+    const history = useHistory();
     const  handleSubmite = async(e) => {
       e.preventDefault()
       if(passwordRef.current.value!==passwordConfirmRef.current.value)
@@ -24,9 +24,10 @@ const SignUp = () => {
        setError('')
        setLoading(true)
       await singup(emailRef.current.value,passwordRef.current.value)
-      history.push("/")
+      history.push("/login")
     }catch(err){
-        setError('failed to create account')
+        setError(`failed to create account 
+                  . ${err}`)
         console.log(err)
       }
       setLoading(false)

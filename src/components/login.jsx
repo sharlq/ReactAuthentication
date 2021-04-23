@@ -63,6 +63,7 @@ const LogIn = () => {
      </Button>
      </div>
       </form>
+      <p className="log-sign-qustion"><Link to="/resetPassword">Forgot Password</Link></p>
       <p className="log-sign-qustion">Need an Account ? <Link to="/signup">Sign Up</Link> </p>
       </CardContent>
       
