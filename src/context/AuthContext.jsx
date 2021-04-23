@@ -1,5 +1,5 @@
 import React ,{useState,useEffect,useContext} from 'react'
-import { auth } from '../firebase' // the problem is here 
+import { auth } from '../firebase' 
 
 
 const AuthContext = React.createContext()
