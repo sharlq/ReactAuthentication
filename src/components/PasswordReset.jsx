@@ -18,7 +18,8 @@ const PasswordReset = () => {
       await resetPassword(emailRef.current.value)
       setMessage("check your email for Reset message")
       }catch(err){
-        setError('failed to Reset Password')
+        setError(`failed to Reset Password
+        ${err}`)
         console.log(err)
       }
     }

@@ -29,6 +29,13 @@ const logout = ()=>{
 const resetPassword = async(email) =>{
     return await auth.sendPasswordResetEmail(email)
 }
+function updateEmail(email) {
+    return currentUser.updateEmail(email)
+  }
+
+  function updatePassword(password) {
+    return currentUser.updatePassword(password)
+  }
 
  useEffect(() => {//because we only run once 
 
@@ -47,7 +54,9 @@ const value = {
     singup,
     login,
     logout,
-    resetPassword
+    resetPassword,
+    updateEmail,
+    updatePassword
 }
     return (
         <AuthContext.Provider value={value}>
