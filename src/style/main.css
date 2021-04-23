@@ -1,3 +1,11 @@
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
 .log-sign-qustion {
   width: -webkit-fit-content;
   width: -moz-fit-content;

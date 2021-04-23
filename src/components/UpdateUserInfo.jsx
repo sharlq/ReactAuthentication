@@ -4,7 +4,7 @@ import {Alert} from '@material-ui/lab';
 import useStyles from "./materialUIStyling"
 import {useAuth} from "../context/authcontext"
 import {Link,useHistory} from "react-router-dom";
-import { DeleteForeverRounded } from '@material-ui/icons';
+
 
 const UpdateUserInfo = () => {
     const emailRef=useRef()
@@ -45,9 +45,7 @@ const UpdateUserInfo = () => {
       <form className={classes.textBox} noValidate autoComplete="off" onSubmit={(e)=>handleSubmite(e)} >
       {error && <Alert severity="error">{error}</Alert> /*this will work since empty string returns false */}
       <TextField 
-       
-        className={classes.input}
-        id="standard-basic"
+        id="updateInfoEmail"
         type="  background"
         label="Email"
         variant="outlined"
@@ -57,7 +55,7 @@ const UpdateUserInfo = () => {
         {/* //note here that the attributes is different from those of the normal tags you can go back to the api refferenc to check them */}
       <TextField
         error={error}
-        id="filled-basic"
+        id="updateInfoPassword"
         type="password"
         label="Password"
         variant="outlined" 
@@ -66,7 +64,7 @@ const UpdateUserInfo = () => {
         />
       <TextField
        error={error}
-       id="outlined-basic"   
+       id="updateInfoPasswordConfirmation"   
        type="password" 
        label="Password Confirmation" 
        variant="outlined" 
