@@ -41,10 +41,9 @@ const SignUp = () => {
       <form className={classes.textBox} noValidate autoComplete="off" onSubmit={(e)=>handleSubmite(e)} >
       {error && <Alert severity="error">{error}</Alert> /*this will work since empty string returns false */}
       <TextField 
-        error={false}
-        className={classes.input}
-        id="standard-basic"
-        type="  background"
+        error={error}
+        id="signupEmail"
+        type="email"
         label="Email"
         variant="outlined"
         inputRef={emailRef}
@@ -52,8 +51,8 @@ const SignUp = () => {
         />
         {/* //note here that the attributes is different from those of the normal tags you can go back to the api refferenc to check them */}
       <TextField
-        error={false}
-        id="filled-basic"
+        error={error}
+        id="signupPassword"
         type="password"
         label="Password"
         variant="outlined" 
@@ -62,7 +61,7 @@ const SignUp = () => {
         />
       <TextField
        error={error}
-       id="outlined-basic"   
+       id="signupPasswordConfirmation"   
        type="password" 
        label="Password Confirmation" 
        variant="outlined" 
