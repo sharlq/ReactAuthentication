@@ -9,7 +9,7 @@ const LogIn = () => {
     const emailRef=useRef()
     const passwordRef=useRef()
     const classes = useStyles();
-    const {login,currentUser} = useAuth();
+    const {login} = useAuth();
     const [error,setError] = useState("")
     const [loading,setLoading] = useState(false)
     const history = useHistory();
@@ -21,7 +21,8 @@ const LogIn = () => {
       await login(emailRef.current.value,passwordRef.current.value)
       history.push("/") // history.push is not a function
       }catch(err){
-        setError('failed to Log in')
+        setError(`failed to Log in
+         ${err}`)
         console.log(err)
       }
       setLoading(false)

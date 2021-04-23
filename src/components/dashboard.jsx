@@ -13,15 +13,7 @@ const Dashboard = () => {
 
     // now if i opened the the dash board url link why ian not loged in it will give me erro and i want to be directed to the log in page instead
 
-    const handleLogOut = async() =>{
-        setError('')
-        try{
-            await logout()
-            history.push("/login")
-        }catch{
-            setError("failed to log out")
-        }
-    }
+ 
     return (
         <div>
             <Card variant="outlined" className={classes.root}>
@@ -35,9 +27,11 @@ const Dashboard = () => {
     
     
     <div>
-      <Button  variant="contained" color="primary" className={classes.btn} type="submit" >
+    <Link to="/updateUserInfo">
+      <Button  variant="contained" color="primary" className={classes.btn} type="submit" to="/updateUserInfo">
         Update Profile
      </Button>
+     </Link>
      </div>
     
       <p className="log-sign-qustion" onClick={logout}><Link to="/login">Log Out</Link> </p>
