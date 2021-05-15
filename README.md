@@ -5,7 +5,9 @@ this project is regester form created using react.js , firebase and matireal UI 
 2. the user can log in
 3. the user can update their profile
 4. the user can reset their password if they forgot it
-
+  
+you can test teh project here  
+https://firebase-user-auth.netlify.app/login  
 i want this project to by a part of a social media website that i want to build for my portfolio
 
 # how does this poject helped me improve
