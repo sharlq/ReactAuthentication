@@ -52,7 +52,7 @@ const UpdateUserInfo = () => {
         inputRef={emailRef}
         placeholder={currentUser.email}
         />
-        {/* //note here that the attributes is different from those of the normal tags you can go back to the api refferenc to check them */}
+       
       <TextField
         error={error}
         id="updateInfoPassword"
