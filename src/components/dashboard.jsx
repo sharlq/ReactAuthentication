@@ -9,9 +9,7 @@ const Dashboard = () => {
     const {currentUser,logout} = useAuth()
   
 
-    // now if i opened the the dash board url link why ian not loged in it will give me erro and i want to be directed to the log in page instead
-
- 
+    
     return (
     <div>
       <Card variant="outlined" className={classes.root}>

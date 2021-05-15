@@ -37,16 +37,13 @@ function updateEmail(email) {
     return currentUser.updatePassword(password)
   }
 
- useEffect(() => {//because we only run once 
-
+ useEffect(() => { 
      const unsubscribe =  auth.onAuthStateChanged(user =>{
         setLoading(true)
-        
-           setCurrentUser(user)
+        setCurrentUser(user)
        })
        return unsubscribe
-        //the reason why we get this un subscribe here is that this function is actually return a method that when called unsupscriped the on off changed event 
-        //this is going to unsubsicribe use from the listner here when ever we unmount this component 
+      
    }, [])
 
 const value = {

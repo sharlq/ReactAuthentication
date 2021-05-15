@@ -14,7 +14,6 @@ function App() {
         <Switch>
          <PrivateRoute exact path="/" component={Dashboard} />
          <PrivateRoute  path="/updateUserInfo" component={UpdateUserInfo} />    
-        {/*remmeber we use exact so it doesnt render the component in any url that has / but only but just the one with the exact value of / */}
         <Route exact path="/login" component={LogIn} /> 
         <Route path="/signup" component={SignUp} />
         <Route path="/resetPassword" component={PasswordResst} />

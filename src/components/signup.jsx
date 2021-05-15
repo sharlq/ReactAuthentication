@@ -19,7 +19,7 @@ const SignUp = () => {
     const  handleSubmite = async(e) => {
       e.preventDefault()
       if(passwordRef.current.value!==passwordConfirmRef.current.value)
-      {setError("password dosnt match")}//note that the useRef has current property to reach the value instead of target on the previous input events
+      {setError("password dosnt match")}
       try{
        setError('')
        setLoading(true)
